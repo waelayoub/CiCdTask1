@@ -21,7 +21,7 @@ jobs:
     - name: Update Gradle Wrapper
       run: |
         chmod +x gradlew
-        ./gradlew wrapper --gradle-version 7.4.2
+        ./gradlew wrapper --gradle-version 7.5
 
     - name: Build with Gradle
       run: ./gradlew build
