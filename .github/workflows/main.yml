@@ -17,18 +17,19 @@ jobs:
       - name: Set up JDK
         uses: actions/setup-java@v2
         with:
-          java-version: '11' # Adjust the Java version as needed
-
-      - name: Set up Android SDK
-        uses: actions/setup-java@v1
-        with:
-          java-version: '1.8' # Android requires Java 8
-          architecture: 'x64'
+          java-version: '11'
+          distribution: 'adopt'  # Specify the distribution (e.g., adopt)
+          java-package: jdk
+          architecture: x64
+          check-latest: false
+          server-id: github
+          server-username: GITHUB_ACTOR
+          server-password: GITHUB_TOKEN
+          overwrite-settings: true
+          job-status: success
 
       - name: Make gradlew executable
         run: chmod +x gradlew
 
       - name: Build and Test
         run: ./gradlew build
-
-
